@@ -14,9 +14,12 @@ class MpesaAuth:
         Get access token from the Mpesa API
         """
         token_url = f"{self.base_url}/oauth/v1/generate?grant_type=client_credentials"
-        response = requests.get(token_url, auth=HTTPBasicAuth(self.consumer_key, self.consumer_secret))
-        if response.status_code == 200:
-            return response.json().get('access_token')
-        else:
-            error_message = response.json().get('error_message', 'Failed to obtain access token')
-            raise Exception(error_message)
+        try:
+            response = requests.get(token_url, auth=HTTPBasicAuth(self.consumer_key, self.consumer_secret))
+            if response.status_code == 200:
+                return response.json().get('access_token')
+            else:
+                error_message = response.json().get('error_message', 'Failed to obtain access token')
+                raise Exception(error_message)
+        except requests.exceptions.ConnectionError:
+            raise Exception("Network error")
