@@ -18,4 +18,5 @@ class MpesaAuth:
         if response.status_code == 200:
             return response.json().get('access_token')
         else:
-            raise Exception("Failed to obtain access token: " + response.text)
+            error_message = response.json().get('error_message', 'Failed to obtain access token')
+            raise Exception(error_message)

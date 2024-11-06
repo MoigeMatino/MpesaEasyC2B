@@ -31,7 +31,6 @@ def test_invalid_credentials(mock_get, mpesa_auth):
     
     with pytest.raises(Exception) as e:
         mpesa_auth.get_access_token()
-    import pdb; pdb.set_trace()
     assert str(e.value) == "test_error_message"
     
 @patch('mpesa_c2b.auth.requests.get')
