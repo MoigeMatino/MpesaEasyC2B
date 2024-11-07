@@ -35,7 +35,7 @@ def test_invalid_credentials(mock_get, mpesa_auth):
     
 @patch('mpesa_c2b.auth.requests.get')
 def test_network_error_handling(mock_get, mpesa_auth):
-    # Simulate a network error
+    
     mock_get.side_effect = requests.exceptions.ConnectionError
 
     with pytest.raises(Exception) as e:
