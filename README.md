@@ -25,10 +25,6 @@ This project is currently in active development. Features are being added and re
 - Add more examples and use cases
 - Improve test coverage
 
-## Contributing
-
-We welcome contributions! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for more details on how to get involved.
-
-## Feedback
+## Contributing & Feedback
 
 Your feedback is valuable to us. Please open an issue on GitHub if you encounter any problems or have suggestions for improvements.
